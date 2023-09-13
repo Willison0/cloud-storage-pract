@@ -2,7 +2,7 @@ import React from "react";
 import { signIn, signOut } from "next-auth/react";
 import { FetchUseSession } from "@/Hooks/useSession";
 import Button from "@/Components/common/button";
-import styles from "./Home.modules.scss"
+import styles from "./Home.module.scss";
 
 export default function HomeComponent() {
   const { session } = FetchUseSession();
