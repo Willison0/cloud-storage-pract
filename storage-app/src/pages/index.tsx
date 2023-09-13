@@ -1,9 +1,9 @@
 import Head from "next/head";
 import HomeComponent  from "@/Components/Home";
+import { FetchUseSession } from "@/Hooks/useSession";
 
 export default function Home() {
-
-  return (
+  const { session } = FetchUseSession();  return (
     <>
       <Head>
         <title>Create T3 App</title>
@@ -12,9 +12,16 @@ export default function Home() {
       </Head>
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
         <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
-          {/* <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
-            Welcome <span className="text-[hsl(280,100%,70%)]">{session?.user.name}</span>!
-          </h1> */}
+          {session
+          ? <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
+          Welcome <span className="text-[hsl(280,100%,70%)]">{session?.user.name}</span>!
+        </h1>
+          : <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
+          You&#39;re welcome to <span className="text-[hsl(280,100%,70%)]">Sign in!</span>
+        </h1>}
+          
+
+          
 
           <HomeComponent />
 
